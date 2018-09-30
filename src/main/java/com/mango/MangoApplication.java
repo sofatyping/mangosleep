@@ -1,12 +1,12 @@
-package com.project.mango.mangosleep;
+package com.mango;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class MangosleepApplication {
+public class MangoApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(MangosleepApplication.class, args);
+		SpringApplication.run(MangoApplication.class, args);
 	}
 }
