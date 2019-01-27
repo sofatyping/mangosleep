@@ -1,19 +1,19 @@
 buildscript {
-	ext {
-		springBootVersion = '2.0.4.RELEASE'
-	}
-	repositories {
-		mavenCentral()
-	}
-	dependencies {
-		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
-	}
+    ext {
+        springBootVersion = '2.0.4.RELEASE'
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
 }
 
 plugins {
-	id "com.moowork.node" version "1.2.0"
-	id 'io.franzbecker.gradle-lombok' version '1.14'
-	id 'java'
+    id "com.moowork.node" version "1.2.0"
+    id 'io.franzbecker.gradle-lombok' version '1.14'
+    id 'java'
 }
 
 apply plugin: 'java'
@@ -26,31 +26,37 @@ version = '0.0.1-SNAPSHOT'
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
+bootJar { 
+    baseName = 'gs-accessing-data-mysql' 
+    version =  '0.1.0'
+}
+
 repositories {
-	mavenCentral()
+    mavenCentral()
 }
 
 dependencies {
-	compile('org.springframework.boot:spring-boot-starter-data-jpa')
-	compile('org.springframework.boot:spring-boot-starter-data-rest')
-	compile('org.springframework.boot:spring-boot-starter-thymeleaf')
+    compile('org.springframework.boot:spring-boot-starter-data-jpa')
+    compile('org.springframework.boot:spring-boot-starter-data-rest')
+    compile('org.springframework.boot:spring-boot-starter-thymeleaf')
     compile('joda-time:joda-time')
+    compile('mysql:mysql-connector-java')
     runtime('com.h2database:h2')
-	testCompile('org.springframework.boot:spring-boot-starter-test')
+    testCompile('org.springframework.boot:spring-boot-starter-test')
 
 }
 
 task webpack(type: NodeTask, dependsOn: 'npmInstall') {
-	script = project.file('node_modules/.bin/webpack')
+    script = project.file('node_modules/.bin/webpack')
 }
 
 processResources.dependsOn 'webpack'
 
 bootRun {
-	sourceResources sourceSets.main
+    sourceResources sourceSets.main
 }
 
 lombok {
-	version = "1.18.2"
-	sha256 = ""
+    version = "1.18.2"
+    sha256 = ""
 }
