@@ -12,12 +12,23 @@ public class Node {
     private @Id @GeneratedValue Long nodeId;
     private String nodeType;
     private String title;
+    private String imgUrl;
 
-    private Node () {}
+    private Node[] children;
 
-    public Node(String nodeType, 
-                String title) {
+    private Node() {
+    }
+
+    // For ViewNode
+    public Node(String nodeType, String title) {
         this.nodeType = nodeType;
         this.title = title;
+    }
+
+    // For TripNode
+    public Node(String nodeType, String title, String imgUrl) {
+        this.nodeType = nodeType;
+        this.title = title;
+        this.imgUrl = imgUrl;
     }
 }

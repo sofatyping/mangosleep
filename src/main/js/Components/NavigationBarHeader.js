@@ -64,8 +64,8 @@ export class NavigationBarHeader extends React.Component {
                         </NavItem>
                         </Nav>
                     </Navbar.Collapse>
-                </Navbar>;
+                </Navbar>
             </div>
-        );
+        )
     }
 }

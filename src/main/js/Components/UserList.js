@@ -10,7 +10,7 @@ export class UserList extends React.Component {
     render() {
         var users = this.props.users.map(user =>
             <User key={user._links.self.href} user={user} />
-        );
+        )
         return (
             <table>
                 <tbody>
