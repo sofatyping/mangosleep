@@ -4,6 +4,9 @@
 const React = require('react');
 const ReactDOM = require('react-dom');
 const client = require('./client');
+import { ViewList } from './Components/ViewList.js'
+import { NavigationBarHeader } from './Components/NavigationBarHeader.js'
+
 // end::vars[]
 
 // tag::app[]
@@ -11,56 +14,28 @@ class App extends React.Component {
 
 	constructor(props) {
 		super(props);
-		this.state = {users: []};
+		this.state = { users: [], nodes: [] };
 	}
 
 	componentDidMount() {
-		client({method: 'GET', path: '/api/users'}).then(response => {
-			this.setState({users: response.entity._embedded.users});
+		// TODO: replace to get the real nodes from backend
+		client({ method: 'GET', path: '/api/nodes' }).then(response => {
+			this.setState({ nodes: response.entity._embedded.nodes });
 		});
 	}
 
 	render() {
+		console.log(this.state.nodes)
 		return (
-			<UserList users={this.state.users}/>
+			<div>
+				<NavigationBarHeader></NavigationBarHeader>
+				<ViewList nodes={this.state.nodes} />
+			</div>
+
 		)
 	}
 }
 // end::app[]
-
-// tag::user-list[]
-class UserList extends React.Component{
-	render() {
-		var users = this.props.users.map(user =>
-			<User key={user._links.self.href} user={user}/>
-		);
-		return (
-			<table>
-				<tbody>
-					<tr>
-						<th>First Name</th>
-						<th>Last Name</th>
-					</tr>
-					{users}
-				</tbody>
-			</table>
-		)
-	}
-}
-// end::user-list[]
-
-// tag::user[]
-class User extends React.Component{
-	render() {
-		return (
-			<tr>
-				<td>{this.props.user.firstName}</td>
-				<td>{this.props.user.lastName}</td>
-			</tr>
-		)
-	}
-}
-// end::user[]
 
 // tag::render[]
 ReactDOM.render(

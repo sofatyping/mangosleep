@@ -9,11 +9,13 @@
   "author": "Mango",
   "license": "Apache-2.0",
   "scripts": {
-    "watch": "webpack --watch -d"
+    "watch": "sudo webpack --watch -d"
   },
   "dependencies": {
     "react": "^16.4.0",
+    "react-bootstrap": "^0.32.4",
     "react-dom": "^16.4.0",
+    "reactstrap": "^7.1.0",
     "rest": "^2.0.0",
     "webpack": "^4.10.1"
   },
