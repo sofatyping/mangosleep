@@ -39,21 +39,6 @@ export class NavigationBarHeader extends React.Component {
                             <NavItem eventKey={2} href="#">
                                 Post A Trip
                             </NavItem>
-                            {/*
-                                Keep the below here for furthur use of drop down menus
-                            */}
-
-                            {/* <NavDropdown eventKey={2} title="Dropdown" id="basic-nav-dropdown">
-                                <MenuItem eventKey={2.1}>Action</MenuItem>
-                                <MenuItem eventKey={2.2}>Another action</MenuItem>
-                                <MenuItem eventKey={2.3}>Something else here</MenuItem>
-                                <MenuItem divider />
-                                <MenuItem eventKey={2.3}>Separated link</MenuItem>
-                            </NavDropdown> 
-                            <NavItem eventKey={4} href="#">
-                                Help
-                            </NavItem>
-                            */}
                         </Nav>
                         <Nav pullRight>
                             <NavItem eventKey={1} href="#">
